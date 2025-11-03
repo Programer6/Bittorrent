@@ -10,9 +10,9 @@ function decodeBencode(bencodedValue) {
     if (firstColonIndex === -1) { // -1 represents not found!
       throw new Error("Invalid encoded value"); // throw stop currect fuction + erorr object
     }
-    return bencodedValue.substr(firstColonIndex + 1)
+    return bencodedValue.substr(firstColonIndex + 1);
   } 
-  else if (bencodedValue[0] === "e"){ // checking
+  else if (bencodedValue[0] === "i"){ // checking
     const eIndex = bencodedValue.indexOf("e")
     return bencodedValue.substr(1, eIndex - 1)
   }
