@@ -14,7 +14,7 @@ function decodeBencode(bencodedValue) {
   } 
   else if (bencodedValue[0] === "i"){ // checking
     const eIndex = bencodedValue.indexOf("e")
-    return bencodedValue.substr(1, eIndex - 1)
+    return parseInt(bencodedValue.substr(1, eIndex - 1), 10)
   }
   else {
     throw new Error("Only strings are supported at the moment");
