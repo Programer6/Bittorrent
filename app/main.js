@@ -23,16 +23,15 @@ function main() {
   // You can use print statements as follows for debugging, they'll be visible when running tests.
   console.error("Logs from your program will appear here!");
 
-  // TODO: Uncomment the code below to pass the first stage
-  // if (command === "decode") {
-  //   const bencodedValue = process.argv[3];
-  //
+  if (command === "decode") {
+     const bencodedValue = process.argv[3];
+
   //   // In JavaScript, there's no need to manually convert bytes to string for printing
   //   // because JS doesn't distinguish between bytes and strings in the same way Python does.
-  //   console.log(JSON.stringify(decodeBencode(bencodedValue)));
-  // } else {
-  //   throw new Error(`Unknown command ${command}`);
-  // }
+     console.log(JSON.stringify(decodeBencode(bencodedValue)));
+   } else {
+     throw new Error(`Unknown command ${command}`);
+   }
 }
 
 main();
