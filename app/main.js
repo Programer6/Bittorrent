@@ -1,18 +1,22 @@
 const process = require("process");
 const util = require("util");
 
-// Examples:
-// - decodeBencode("5:hello") -> "hello"
-// - decodeBencode("10:hello12345") -> "hello12345"
+
+//The function bencoded string takes a string as input for example 
+// - decodeBencode("5:hello") -> "hello"   ---- the 5 represents the lenght of the string!
 function decodeBencode(bencodedValue) {
-  // Check if the first character is a digit
-  if (!isNaN(bencodedValue[0])) {
-    const firstColonIndex = bencodedValue.indexOf(":");
-    if (firstColonIndex === -1) {
-      throw new Error("Invalid encoded value");
+  if (!isNaN(bencodedValue[0])) {  // Checks if first character of string is a number?
+    const firstColonIndex = bencodedValue.indexOf(":"); // find index of first colon ":" in string!
+    if (firstColonIndex === -1) { // -1 represents not found!
+      throw new Error("Invalid encoded value"); // throw stop currect fuction + erorr object
     }
-    return bencodedValue.substr(firstColonIndex + 1);
-  } else {
+    return bencodedValue.substr(firstColonIndex + 1)
+  } 
+  else if (bencodedValue[0] === "e"){ // checking
+    const eIndex = bencodedValue.indexOf("e")
+    return bencodedValue.substr(1, eIndex - 1)
+  }
+  else {
     throw new Error("Only strings are supported at the moment");
   }
 }
